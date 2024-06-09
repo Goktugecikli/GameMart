@@ -87,7 +87,7 @@ function clearCookie(name) {
 
 function updateUserBalanceAtHtml() {
     if (currentUser) {
-        document.getElementById("balance").textContent = "Balance: $" + currentUser.balance;
+        document.getElementById("balance").textContent = `$ ${currentUser.balance}`;
         document.getElementById('name').textContent = currentUser.username;
     } else {
         document.getElementById("balance").textContent = "Balance: $0";
@@ -142,60 +142,64 @@ function showInventory() {
         emptyInventoryMessage.style.fontSize = '24px';
         emptyInventoryMessage.style.textAlign = 'center';
 
+
         // İçeriği ekle
         inventoryContainer.appendChild(emptyInventoryMessage);
-    } else {
-        // Kullanıcının envanterindeki her bir oyun için bir HTML elementi oluştur
-        currentUserInventory.forEach(inventory => {
-            const outerSquare = document.createElement('div');
-            outerSquare.classList.add('outer-square');
-
-            const gameName = document.createElement('div');
-            gameName.classList.add('game-name');
-            gameName.textContent = inventory.name;
-
-            const gamePrice = document.createElement('div');
-
-
-            const transferButton = document.createElement('button');
-            transferButton.classList.add('transfer-button');
-            transferButton.textContent = 'Transfer';
-            transferButton.onclick = () => {
-                // Kullanıcı adını al
-                const recipientUsername = prompt("Lütfen transfer edilecek kullanıcının adını girin:");
-                if (!recipientUsername) {
-                    console.log("Transfer iptal edildi.");
-                    return;
-                }
-                // Belirtilen alıcıyı bul
-                const recipientUser = users.find(user => user.username.toLowerCase() === recipientUsername.toLowerCase());
-
-                // Eğer alıcı mevcut değilse
-                if (!recipientUser) {
-                    alert("Yanlış kullanıcı adı.");
-                    return;
-                }
-                if (recipientUser.inventories.some(item => item.id === inventory.id)) {
-                    alert(`'${recipientUser.username}' adlı kullanıcı oyuna sahiptir. Gönderim yapılamaz!`);
-                    return;
-                }
-                // Transfer işlemini gerçekleştir
-                transferInventoryItem(currentUser, recipientUser, inventory);
-
-
-            };
-
-            // Oyunu dış kutuya ekle
-            outerSquare.appendChild(gameName);
-            outerSquare.appendChild(gamePrice);
-            outerSquare.appendChild(transferButton);
-
-            // Oyun dış kutusunu oyunlar konteynerine ekle
-            inventoryContainer.appendChild(outerSquare);
-        });
-
-
+        return;
     }
+    // Kullanıcının envanterindeki her bir oyun için bir HTML elementi oluştur
+
+    currentUserInventory.forEach(inventory => {
+
+        const outerSquare = document.createElement('div');
+        outerSquare.classList.add('outer-square');
+
+        const gameName = document.createElement('div');
+        gameName.classList.add('game-name');
+        gameName.textContent = inventory.name;
+
+        const gamePrice = document.createElement('div');
+
+
+        const transferButton = document.createElement('button');
+        transferButton.classList.add('transfer-button');
+        transferButton.textContent = 'Transfer';
+        transferButton.onclick = () => {
+            // Kullanıcı adını al
+            const recipientUsername = prompt("Lütfen transfer edilecek kullanıcının adını girin:");
+            if (!recipientUsername) {
+                console.log("Transfer iptal edildi.");
+                return;
+            }
+            // Belirtilen alıcıyı bul
+            const recipientUser = users.find(user => user.username.toLowerCase() === recipientUsername.toLowerCase());
+
+            // Eğer alıcı mevcut değilse
+            if (!recipientUser) {
+                alert("Yanlış kullanıcı adı.");
+                return;
+            }
+            if (recipientUser.inventories.some(item => item.id === inventory.id)) {
+                alert(`'${recipientUser.username}' adlı kullanıcı oyuna sahiptir. Gönderim yapılamaz!`);
+                return;
+            }
+            // Transfer işlemini gerçekleştir
+            transferInventoryItem(currentUser, recipientUser, inventory);
+
+
+        };
+
+        // Oyunu dış kutuya ekle
+        outerSquare.appendChild(gameName);
+        outerSquare.appendChild(gamePrice);
+        outerSquare.appendChild(transferButton);
+
+        // Oyun dış kutusunu oyunlar konteynerine ekle
+        inventoryContainer.appendChild(outerSquare);
+    });
+
+
+
 }
 
 // "Envanter" bağlantısına tıklandığında envanteri göster

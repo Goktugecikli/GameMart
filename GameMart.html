@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
@@ -20,7 +21,7 @@
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password">
                 </div>
-                <button type="submit" id="submit" >Login</button>
+                <button type="submit" id="submit" >Login <i class="fa-solid fa-right-to-bracket"></i></button>
             </form>
         </div>
     </div>
@@ -28,15 +29,16 @@
     <header class="l-header">
         <nav class="nav bd-grid">
             <div>
-                <span id="name" class="nav__logo">Göktuğ</span>
+                <i class="fa-solid fa-user"></i>
+                <span id="name" class="nav__logo"></span>
             </div>
 
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
-                    <li class="nav__item"><span id="balance" class="nav__link">Balance: $1000</span></li>
-                    <li class="nav__item"><a href="#market" class="nav__link">Market</a></li>
-                    <li class="nav__item"><a href="#envanter" id="inventory" class="nav__link">Envanter</a></li>
-                    <li class="nav__item"><a href="#logout" id="logoutButton" onclick="Logout()" class="nav__link">Logout</a></li>
+                    <li class="nav__item"><i class="fa-solid fa-wallet"></i> <span id="balance" class="nav__link">$-1</span></li>
+                    <li class="nav__item"><a href="#market" class="nav__link"><i class="fa-solid fa-store"></i> Market</a></li>
+                    <li class="nav__item"><a href="#envanter" id="inventory" class="nav__link"><i class="fa-solid fa-gamepad"></i> Envanter</a></li>
+                    <li class="nav__item"><a href="#logout" id="logoutButton" onclick="Logout()" class="nav__link"><i class="fa-solid fa-right-from-bracket"></i> Logout</i></a></li>
                 </ul>
                 </ul>
             </div>
@@ -48,7 +50,7 @@
     </header>
 
     <session class="market">
-        <div class="title">MARKET</div>
+        <!-- <div class="title">MARKET</div> -->
          <div class="games">
             
         </div>
