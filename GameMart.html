@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="login-screen">
+        <div class="login-box">
+            <h2>Login</h2>
+            <form>
+                <div class="input-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username">
+                </div>
+                <div class="input-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password">
+                </div>
+                <button type="submit" id="submit" >Login</button>
+            </form>
+        </div>
+    </div>
+   <div class="main" >
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <span id="name" class="nav__logo">Göktuğ</span>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><span id="balance" class="nav__link">Balance: $1000</span></li>
+                    <li class="nav__item"><a href="#market" class="nav__link">Market</a></li>
+                    <li class="nav__item"><a href="#envanter" id="inventory" class="nav__link">Envanter</a></li>
+                    <li class="nav__item"><a href="#logout" id="logoutButton" onclick="Logout()" class="nav__link">Logout</a></li>
+                </ul>
+                </ul>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
+
+    <session class="market">
+        <div class="title">MARKET</div>
+         <div class="games">
+            
+        </div>
+    </session>
+    <session class="inventory">
+
+    </session>
+   </div>
+   <script src="script.js" ></script>
+</body>
+</html>
